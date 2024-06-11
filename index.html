@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Responsive Menu Bar</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body {
+    
+    
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #E0E0E0;
+    width: 100%;
+}
+
+.menu-container {
+    position: relative;
+}
+
+.menu-toggle {
+    background-color: #333;
+    color: aqua;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+    padding: 12px;
+    
+}
+#openMenu{
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.5);
+    
+}
+
+.menu-bar {
+    display: none;
+    flex-direction: column;
+    background-color: #333;
+    width: 150px;
+    animation: 0.5s b;
+
+    position: absolute;
+    top: -30px;
+    left: 0;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.5);
+    border-bottom: 2px double black;
+    border-right: 2px double black;
+    outline: 1px solid #333;
+    
+}
+@keyframes b {
+    from{
+        transform: translateX(-150px);
+    }
+    to{
+        transform: translateX(0%);
+    }
+}
+h1{
+    color: black;
+}
+
+.menu-bar a {
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+}
+
+.menu-bar a:hover {
+    background-color: #575757;
+    color: aqua;
+}
+
+
+
+.menu-bar .menu-toggle {
+    text-align: right;
+}
+.hide{
+    display: none;
+}
+
+@media (min-width: 800px) {
+    .menu-bar {
+        display: flex;
+        position: static;
+        flex-direction: row-reverse;
+        width: auto;
+        box-shadow: none;
+        border: none;
+        background: transparent;
+        outline: none;
+        
+    }
+    .menu-toggle {
+        display: none;
+    }
+    .menu-bar a{
+        color: black;
+    }
+    .menu-bar a:hover{
+       border-bottom: 2px solid blue;
+       border-radius: 7px;
+       color: white;
+    }
+    .hide{
+    display: block;
+}
+  
+}
+    </style>
+</head>
+<body>
+    <header>
+         <div class="menu-container">
+        <button class="menu-toggle" id="openMenu">☰</button>
+        <nav class="menu-bar" id="menuBar">
+            <button class="menu-toggle" id="closeMenu">✖</button>
+            <a href="#">الرئيسية</a>
+             <a href="#" class="hide">الباقات</a>
+             <a href="#" class="hide">نقاط البيع</a>
+              <a href="#" class="hide">الخدمات</a>
+            <a href="#">المساعدة</a>
+            <a href="#">تواصل معنا</a>
+            <a href="#" class="info">معلومات</a>
+        </nav>
+    </div>
+    
+    <h1>الشبكة المحلية</h1>
+    
+    </header>
+   
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+    const openMenu = document.getElementById('openMenu');
+    const closeMenu = document.getElementById('closeMenu');
+    const menuBar = document.getElementById('menuBar');
+
+    openMenu.addEventListener('click', () => {
+        menuBar.style.display = 'flex';
+        openMenu.style.display = 'none';
+    });
+
+    closeMenu.addEventListener('click', () => {
+        menuBar.style.display = 'none';
+        openMenu.style.display = 'block';
+    });
+});
+    </script>
+</body>
+</html>
